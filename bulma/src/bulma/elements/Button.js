@@ -1,19 +1,19 @@
 const Button = (props) => {
-    const {type, children, color, size, href = ""} = props
+    const {type, styles, children, href = ""} = props
     
     switch(type){
         case "a":
             return (
-                <a href={href} class={"button" + " " + color + " " + size}>{children}</a>
+                <a href={href} className={"button " + styles}>{children}</a>
             )
         case "input":
             return (
-                <input type="button" className={"button" + " " + color + " " + size} value={children} />
+                <input type="button" className={"button " + styles} value={children} />
             )
         case "button":
         default:
             return (
-                <button className={"button" + " " + color + " " + size}>{children}</button>
+                <button className={"button " + styles}>{children}</button>
             )
     }
 }
