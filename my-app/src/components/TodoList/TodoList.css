@@ -36,3 +36,25 @@
 .todolist .todos .todoitem label input{
     margin-right: .5rem;
 }
+.todolist .tarefa-form{
+    display: flex;
+    gap: .5rem;
+    margin-top: 1.5rem;
+}
+.todolist .tarefa-form input{
+    border: solid 1px #ccc;
+    padding: .5rem;
+    border-radius: 5px;
+    flex-grow: 1;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+}
+.todolist .tarefa-form button{
+    border: none;
+    background-color: #0ecf6e;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}

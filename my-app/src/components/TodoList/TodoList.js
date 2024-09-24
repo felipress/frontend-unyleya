@@ -4,8 +4,14 @@ import TodoItem from "./TodoItem"
 
 const TodoList = () => {
     const [tarefas, setTarefas] = useState(["ir ao mercado"])
+    const [tarefaInput, setTarefaInput] = useState("")
+    
     const handleClick = () => {
-        setTarefas([...tarefas, "cortar o cabelo"])
+        setTarefas([...tarefas, tarefaInput])
+        setTarefaInput("")
+    }
+    const handleChange = (event) => {
+        setTarefaInput(event.target.value)
     }
     // const tarefas = ['ir ao mercado', 'estudar', 'lavar roupa', 'cozinhar']
 
@@ -19,7 +25,10 @@ const TodoList = () => {
                     })
                 }
             </ol>
-            <button onClick={handleClick}>adicionar tarefa</button>
+            <div className="tarefa-form">
+                <input type="text" name="tarefa-input" id="tarefa-input" placeholder="Nova tarefa" value={tarefaInput} onChange={handleChange} />
+                <button onClick={handleClick}>adicionar tarefa</button>
+            </div>
         </section>
     )
 }
