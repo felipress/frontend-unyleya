@@ -1,0 +1,18 @@
+.mytasks{
+    max-width: 880px;
+    margin: 0 auto;
+    height: 100vh;
+    padding: 0 2rem;
+}
+.mytasks .mytasks-header{
+    padding: 2rem 0 1rem;
+    text-align: center;
+}
+.mytasks .mytasks-header .mytasks-brand{
+    height: 2.25rem;
+}
+.mytasks .mytasks-main{
+    border: solid 1px #ddd;
+    padding: 2rem;
+    border-radius: 1rem;
+}

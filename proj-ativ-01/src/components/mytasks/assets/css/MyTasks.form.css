@@ -1,0 +1,26 @@
+.mytasks-form{
+    display: flex;
+    gap: .5rem;
+    border-top: solid 1px #ddd;
+    margin: 0 -2rem -2rem;
+    padding: 2rem;
+}
+.mytasks-form input{
+    flex-grow: 1;
+    border: solid 1px #ddd;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    padding: .35rem .75rem;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+.mytasks-form button{
+    border: none;
+    background-color: #EE4E4E;
+    color: #fff;
+    border-radius: 5px;
+    padding: .35rem 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+}
