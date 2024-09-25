@@ -1,15 +1,16 @@
 import './assets/css/MyTasks.list.css'
 import MyTasksListItem from "./MyTasks.list.item"
 
-const MyTasksList = () => {
-    const tasksList = ['Comida', 'Cozinha', 'Limpara a Casa']
+const MyTasksList = ({data}) => {
     return (
-        <ol className="mytasks-list">
-            Comece adicionando uma tarefa
-            {tasksList.map((item) => {
-                return <MyTasksListItem>{item}</MyTasksListItem>
-            })}
-        </ol>
+        <div>
+            { data.length == 0 ? "Comece adicionando uma tarefa" : "" }
+            <ol className="mytasks-list">
+                {data.map((item, index) => {
+                    return <MyTasksListItem key={index}>{item}</MyTasksListItem>
+                })}
+            </ol>
+        </div>
     )
 }
 
