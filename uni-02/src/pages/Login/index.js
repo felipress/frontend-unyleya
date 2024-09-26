@@ -1,8 +1,12 @@
 import "./style.css"
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     return (
-        <h1>Minha página de login</h1>
+        <div>
+            <h1>Minha página de login</h1>
+            <Link to="/">Acessar homepage</Link>
+        </div>
     )
 }
 
