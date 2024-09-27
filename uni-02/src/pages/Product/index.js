@@ -1,4 +1,4 @@
-import {useParams} from 'react-router-dom'
+import {Outlet, useParams} from 'react-router-dom'
 
 const Product = () => {
     const {id} = useParams()
@@ -6,6 +6,7 @@ const Product = () => {
     return (
         <div>
             Página do produto {id}
+            <Outlet />
         </div>
     )
 }
