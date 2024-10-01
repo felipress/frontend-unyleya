@@ -1,0 +1,36 @@
+.SearchBar{
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+.SearchBar input{
+    border: solid 1px transparent;
+    outline: none;
+    padding: .5rem 2.5rem .5rem .75rem;
+    border-radius: 3px;
+    position: relative;
+    background-color: transparent;
+    color: var(--light-color);
+    width: 3rem;
+    z-index: 0;
+    transition: all ease-in-out 200ms;
+}
+.SearchBar input:focus{
+    border: solid 1px var(--light-color);
+    width: 12rem;
+}
+.SearchBar button{
+    display: block;
+    border: none;
+    box-sizing: border-box;
+    padding: .5rem;
+    background-color: transparent;
+    color: var(--light-color);
+    line-height: 0;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+}
+.SearchBar button i{
+    font-size: 1.25rem;
+}
