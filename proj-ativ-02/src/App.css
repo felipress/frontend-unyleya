@@ -63,7 +63,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+a{
+	text-decoration: none;
+	color: inherit;
+}
 
 /*
     Global
@@ -80,11 +83,48 @@ table {
 	--gray-color-lighter-02: #eee;
 	--gray-color-darker-01: #bbb;
 	--gray-color-darker-02: #aaa;
+	--degrade-background: linear-gradient(45deg, var(--secondary-color-02), var(--secondary-color-01) 40%);
 }
-html, input, select, textarea{
+html, input, select, textarea, button{
     font-family: "Plus Jakarta Sans", sans-serif;
 }
-
 .navigation-fixed main{
 	padding-top: 4.25rem;
+	height: 100vh;
+	box-sizing: border-box;
+	background-color: var(--dark-color);
+	color: var(--light-color);
+}
+
+/*	
+	Headers
+*/
+body{
+	font-size: 16px;
+}
+h1{
+	font-size: 44px;
+	font-weight: 800 !important;
+}
+h2{
+	font-size: 34px;
+}
+h3{
+	font-size: 28px;
+}
+h4{
+	font-size: 22px;
+}
+h5{
+	font-size: 18px;
+}
+.title, .subtitle{
+	font-weight: bold;
+	margin: .25rem 0;
+}
+p{
+	font-size: 16px;
+}
+small{
+	font-size: 13px;
 }

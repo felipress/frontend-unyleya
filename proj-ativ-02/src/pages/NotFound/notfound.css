@@ -1,0 +1,20 @@
+.NotFound main{
+    background: var(--degrade-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.NotFound main > figure img{
+    height: 10rem;
+}
+.NotFound main > .message{
+    display: flex;
+    flex-flow: column;
+    gap: .5rem;
+}
+.NotFound main > .message .button{
+    margin-top: 1rem;
+}

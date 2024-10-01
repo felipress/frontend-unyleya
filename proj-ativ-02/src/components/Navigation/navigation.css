@@ -1,5 +1,4 @@
 .Navigation{
-    background-color: var(--dark-color);
     color: var(--light-color);
     display: flex;
     position: fixed;
@@ -12,7 +11,7 @@
     flex-grow: 1;
 }
 .Navigation .item.brand a{
-    display: block;
+    display: inline-block;
     padding: 1rem;
 }
 .Navigation .item.brand a img{

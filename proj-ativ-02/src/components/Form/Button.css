@@ -1,0 +1,44 @@
+.button{
+    border: none;
+    display: inline-block;
+    background-color: var(--dark-color);
+    padding: .85rem 1rem;
+    border-radius: 3px;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    box-sizing: border-box;
+    opacity: 0.9;
+    transition: opacity ease-in-out 250ms;
+    font-size: 16px;
+}
+.button:hover{
+    opacity: 1;
+}
+.button.is-full{
+    width: 100%;
+}
+.button.inverted{
+    border: solid 1px;
+}
+.button.inverted:hover{
+    border-color: transparent; 
+}
+.button.primary{
+    background-color: var(--primary-color);
+}
+.button.secondary{
+    background-color: var(--secondary-color-01);
+}
+.button.primary.inverted{
+    background-color: var(--light-color);
+    color: var(--primary-color);
+}
+.button.secondary.button.inverted{
+    background-color: transparent;
+}
+.button.secondary.button.inverted:hover{
+    border-color: transparent;
+    background-color: var(--light-color);
+    color: var(--secondary-color-01)
+}
