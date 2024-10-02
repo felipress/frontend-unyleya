@@ -1,0 +1,22 @@
+.Home main{
+    padding-bottom: 3rem;
+}
+.category-titles{
+    max-width: 1200px;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+.category-titles .title{
+    margin: 1rem 0;
+}
+.category-titles .grid{
+    display: flex;
+    flex-grow: row;
+    gap: 1rem;
+}
+.category-titles .grid .card{
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    height: 160px;
+    flex-basis: 25%;
+}
