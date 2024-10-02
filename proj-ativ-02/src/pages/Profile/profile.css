@@ -1,0 +1,11 @@
+.Profile{}
+.Profile main{
+    padding: 2rem;
+}
+.Profile main form{
+    display: flex;
+    flex-flow: column;
+    max-width: 480px;
+    gap: 1rem;
+    margin: 0 auto;
+}

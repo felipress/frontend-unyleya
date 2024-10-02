@@ -1,0 +1,30 @@
+.field{
+    max-width: 480px;
+}
+.field.is-full{
+    max-width: 100%;
+}
+.field.input > label{
+    font-size: 13px;
+    font-weight: bold;
+    padding-bottom: .5rem;
+    display: block;
+}
+.field.input > input{
+    background-color: transparent;
+    border: solid 1px var(--gray-color-lighter-01);
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: .75rem 1rem;
+    font-size: 16px;
+    width: 100%;
+    color: var(--light-color);
+    outline: none;
+}
+.field.input > input::placeholder{
+    color: var(--light-color);
+    opacity: 0.5;
+}
+.field.input > input:focus{
+    border-color: var(--light-color);
+}

@@ -5,7 +5,7 @@ import LinkButton from "../../components/Form/LinkButton"
 
 const NotFound = () => {
     return (
-        <div className="NotFound navigation-fixed">
+        <div className="NotFound">
             <Navigation />
             <main>
                 <figure>

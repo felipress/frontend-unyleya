@@ -66,6 +66,7 @@ table {
 a{
 	text-decoration: none;
 	color: inherit;
+	font-weight: bold;
 }
 
 /*
@@ -83,14 +84,17 @@ a{
 	--gray-color-lighter-02: #eee;
 	--gray-color-darker-01: #bbb;
 	--gray-color-darker-02: #aaa;
-	--degrade-background: linear-gradient(45deg, var(--secondary-color-02), var(--secondary-color-01) 40%);
+	--degrade-background: linear-gradient(45deg, var(--secondary-color-02) 10%, var(--secondary-color-01));
 }
 html, input, select, textarea, button{
     font-family: "Plus Jakarta Sans", sans-serif;
 }
+main{
+	box-sizing: border-box;
+}
 .navigation-fixed main{
 	padding-top: 4.25rem;
-	height: 100vh;
+	min-height: 100vh;
 	box-sizing: border-box;
 	background-color: var(--dark-color);
 	color: var(--light-color);

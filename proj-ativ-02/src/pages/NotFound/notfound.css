@@ -6,6 +6,8 @@
     gap: 2rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    min-height: 100vh;
+    color: var(--light-color);
 }
 .NotFound main > figure img{
     height: 10rem;

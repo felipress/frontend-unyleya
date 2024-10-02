@@ -26,6 +26,7 @@
 }
 .button.primary{
     background-color: var(--primary-color);
+    color: var(--light-color);
 }
 .button.secondary{
     background-color: var(--secondary-color-01);
