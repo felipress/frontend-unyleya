@@ -10,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate()
     const formHandle = (event) => {
         event.preventDefault()
-        return navigate("/", {replace: true})
+        return navigate("/home", {replace: true})
     }
     return (
         <div className="Login">

@@ -15,7 +15,7 @@ const SearchBar = () => {
             return navigate("/search?query=" + searchInput, {replace: true})
         }
         else{
-            return navigate("/", {replace: true})
+            return navigate("/home", {replace: true})
         }
     }
 
