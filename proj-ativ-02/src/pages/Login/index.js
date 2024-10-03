@@ -4,15 +4,21 @@ import LinkButton from "../../components/Form/LinkButton"
 import "./login.css"
 import { Link } from "react-router-dom"
 import InputField from "../../components/Form/InputField"
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
+    const navigate = useNavigate()
+    const formHandle = (event) => {
+        event.preventDefault()
+        return navigate("/", {replace: true})
+    }
     return (
         <div className="Login">
             <main>
                 <div className="container">
                     <Brand />
                     <div className="login-form">
-                        <form>
+                        <form method="POST" onSubmit={formHandle}>
                             <h3 className="title">Muito entretenimento espera por você!</h3>
                             <InputField type="email" name="emailInput" label="E-mail" placeholder="email@email.com" required="required" />
                             <InputField type="password" name="passwordInput" label="Senha" required="required" />

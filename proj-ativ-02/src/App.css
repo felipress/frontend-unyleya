@@ -93,7 +93,7 @@ main{
 	box-sizing: border-box;
 }
 .navigation-fixed main{
-	padding-top: 4.25rem;
+	padding-top: 4rem;
 	min-height: 100vh;
 	box-sizing: border-box;
 	background-color: var(--dark-color);

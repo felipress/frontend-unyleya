@@ -1,13 +1,21 @@
+import { useNavigate } from "react-router-dom"
 import "./searchbar.css"
 import { useState } from "react"
 
 const SearchBar = () => {
-    const [search, setSearch] = useState("")
+    const [searchInput, setInputSearch] = useState("")
+    const navigate = useNavigate()
 
-    const searchHandle = (event) => {
-        setSearch(event.target.value)
-        if(search.length >= 3){
-            console.log("pode enviar")
+    const searchInputHandle = (event) => {
+        setInputSearch(event.target.value)
+    }
+
+    const searchInputSend = (event) => {
+        if(searchInput !== ""){
+            return navigate("/search?query=" + searchInput, {replace: true})
+        }
+        else{
+            return navigate("/", {replace: true})
         }
     }
 
@@ -16,8 +24,8 @@ const SearchBar = () => {
     }
     return (
         <div className="SearchBar">
-            <form action="/search" onSubmit={formHandle}>
-                <input type="text" placeholder="Buscar" value={search} onChange={searchHandle} />
+            <form action="/search" id="search-form" onSubmit={formHandle}>
+                <input type="text" placeholder="Buscar" value={searchInput} onChange={searchInputHandle} onKeyUp={searchInputSend} />
                 <button>
                     <i className="material-symbols-outlined">search</i>
                 </button>

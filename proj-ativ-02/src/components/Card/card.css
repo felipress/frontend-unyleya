@@ -1,0 +1,38 @@
+.Card {
+    flex-basis: 25%;
+    flex-shrink: 0;
+}
+.Card:hover figure{
+    opacity: 1;
+}
+.Card:hover .movie-title{
+    opacity: 1;
+}
+.Card figure{
+    position: relative;
+    opacity: .8;
+    transition: opacity ease-in-out 300ms;
+}
+.Card figure i{
+    opacity: 0;
+    position: absolute;
+    font-size: 3rem;
+    top: 50%;
+    left: 50%;
+    margin-top: -1.5rem;
+    margin-left: -1.5rem;
+    transition: opacity ease-in-out 300ms;
+}
+.Card figure:hover i{
+    opacity: 1;
+}
+.Card figure img{
+    width: 100%;
+    border-radius: 3px;
+}
+.Card .movie-title{
+    font-size: .85rem;
+    margin: .5rem 0;
+    opacity: 0.25;
+    transition: opacity ease-in-out 300ms;
+}

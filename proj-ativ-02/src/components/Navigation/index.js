@@ -1,9 +1,11 @@
 import "./navigation.css"
 import Brand from "./brand"
 import RightActions from "./rightActions"
+import { useLocation } from "react-router-dom"
 
-const Navigation = ({isLogged}) => {
-    if(isLogged) {
+const Navigation = () => {
+    const page = useLocation()
+    if(page.pathname !== "/login" && page.key !== "default") {
         return (
             <div className="Navigation">
                 <Brand />
@@ -11,11 +13,6 @@ const Navigation = ({isLogged}) => {
             </div>
         )
     }
-    return (
-        <div className="Navigation">
-            <Brand />
-        </div>
-    )
 }
 
 export default Navigation

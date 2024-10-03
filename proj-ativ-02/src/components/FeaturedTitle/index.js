@@ -11,8 +11,8 @@ const FeaturedTitle = ({title, description, thumbnail, link}) => {
                 <h3 className="title">{title}</h3>
                 <div className="description">{description}</div>
                 <div className="actions">
-                    <LinkButton to={link} styles="primary">Assistir agora</LinkButton>
-                    <LinkButton styles="secondary inverted">
+                    <LinkButton to={link + "/player"} styles="primary">Assistir agora</LinkButton>
+                    <LinkButton to={link} styles="secondary inverted">
                         <i className="material-symbols-outlined">info</i>
                     </LinkButton>
                     <LinkButton styles="secondary inverted">

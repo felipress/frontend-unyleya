@@ -1,4 +1,3 @@
-import Navigation from "../../components/Navigation"
 import InputField from "../../components/Form/InputField"
 import LinkButton from "../../components/Form/LinkButton"
 import Button from "../../components/Form/Button"
@@ -7,7 +6,6 @@ import "./profile.css"
 const Profile = () => {
     return (
         <div className="Profile navigation-fixed">
-            <Navigation isLogged />
             <main>
                 <div className="container">
                     <form>
