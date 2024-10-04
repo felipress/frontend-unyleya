@@ -53,6 +53,73 @@ const Title = () => {
         <div className="Title navigation-fixed">
             <main>
                 <FeaturedTitle title={movie.title} description={movie.description} thumbnail={movie.thumbnail} link={movie.link} />
+                <div className="FeaturedDetails">
+                    <div className="details-group">
+                        <h5 className="title">Produção</h5>
+                        <ul>
+                            <li><strong>Local:</strong> Inglaterra</li>
+                            <li><strong>Ano:</strong> 2017</li>
+                            <li><strong>Direção:</strong> Gerard Padieux</li>
+                            <li><strong>Estúdio:</strong> Warner Bros</li>
+                        </ul>
+                    </div>
+                    <div className="details-group">
+                        <h5 className="title">Mídia</h5>
+                        <ul>
+                            <li><strong>Local:</strong> Inglaterra</li>
+                            <li><strong>Ano:</strong> 2017</li>
+                            <li><strong>Direção:</strong> Gerard Padieux</li>
+                            <li><strong>Estúdio:</strong> Warner Bros</li>
+                        </ul>
+                    </div>
+                    <div className="details-group has-thumbnail">
+                        <h5 className="title">Elenco</h5>
+                        <ul>
+                            <li>
+                                <img src="https://s2.glbimg.com/i8IEg2L0u6LBfWcwGE_2NWOURiM=/600x0/filters:quality(70)/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2022/s/C/wEyYW5TQmgxq7SVVB0cg/2020-04-21-emily-blunt.jpeg" alt="Foto do elenco" />
+                                <div>
+                                    <strong>Emília Clark</strong>
+                                    <span>Emily Blunt</span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="https://s2.glbimg.com/i8IEg2L0u6LBfWcwGE_2NWOURiM=/600x0/filters:quality(70)/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2022/s/C/wEyYW5TQmgxq7SVVB0cg/2020-04-21-emily-blunt.jpeg" alt="Foto do elenco" />
+                                <div>
+                                    <strong>Emília Clark</strong>
+                                    <span>Emily Blunt</span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="https://s2.glbimg.com/i8IEg2L0u6LBfWcwGE_2NWOURiM=/600x0/filters:quality(70)/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2022/s/C/wEyYW5TQmgxq7SVVB0cg/2020-04-21-emily-blunt.jpeg" alt="Foto do elenco" />
+                                <div>
+                                    <strong>Emília Clark</strong>
+                                    <span>Emily Blunt</span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="https://s2.glbimg.com/i8IEg2L0u6LBfWcwGE_2NWOURiM=/600x0/filters:quality(70)/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2022/s/C/wEyYW5TQmgxq7SVVB0cg/2020-04-21-emily-blunt.jpeg" alt="Foto do elenco" />
+                                <div>
+                                    <strong>Emília Clark</strong>
+                                    <span>Emily Blunt</span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="https://s2.glbimg.com/i8IEg2L0u6LBfWcwGE_2NWOURiM=/600x0/filters:quality(70)/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2022/s/C/wEyYW5TQmgxq7SVVB0cg/2020-04-21-emily-blunt.jpeg" alt="Foto do elenco" />
+                                <div>
+                                    <strong>Emília Clark</strong>
+                                    <span>Emily Blunt</span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="https://s2.glbimg.com/i8IEg2L0u6LBfWcwGE_2NWOURiM=/600x0/filters:quality(70)/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2022/s/C/wEyYW5TQmgxq7SVVB0cg/2020-04-21-emily-blunt.jpeg" alt="Foto do elenco" />
+                                <div>
+                                    <strong>Emília Clark</strong>
+                                    <span>Emily Blunt</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <CategoryTitles movies={movies}>Filmes similares que você pode gostar</CategoryTitles>
             </main>
         </div>

@@ -92,6 +92,15 @@ html, input, select, textarea, button{
 main{
 	box-sizing: border-box;
 }
+.navigation-fixed::before{
+	content: "";
+	width: 100%;
+	position: fixed;
+	top: 0;
+	height: 4rem;
+    background: linear-gradient(var(--dark-color), transparent);
+	z-index: 49;
+}
 .navigation-fixed main{
 	padding-top: 4rem;
 	min-height: 100vh;

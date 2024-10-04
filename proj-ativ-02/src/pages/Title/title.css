@@ -1,3 +1,57 @@
-.Home main{
-    padding-bottom: 3rem;
+.Title .FeaturedDetails{
+    display: flex;
+    gap: 1rem;
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+}
+.FeaturedDetails .details-group{
+    border: solid 1px var(--light-color);
+    border-radius: 3px;
+    padding: 1.25rem;
+    flex-grow: 1;
+    flex-basis: 25%;
+}
+.FeaturedDetails .details-group ul{
+    margin: 1rem 0;
+    font-size: .85rem;
+}
+.FeaturedDetails .details-group ul li{
+    margin: .5rem 0;
+}
+.FeaturedDetails .details-group ul li strong{
+    font-weight: bold;
+}
+.FeaturedDetails .details-group.has-thumbnail{
+    flex-grow: 2;
+    padding-bottom: 1rem;
+    flex-basis: 50%;
+}
+.FeaturedDetails .details-group.has-thumbnail ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    gap: .5rem;
+}
+.FeaturedDetails .details-group.has-thumbnail ul li{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    margin-right: .5rem;
+}
+.FeaturedDetails .details-group.has-thumbnail ul li img{
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--primary-color);
+    border-radius: 100%;
+    overflow: hidden;
+    display: block;
+
+}
+.FeaturedDetails .details-group.has-thumbnail ul li strong,
+.FeaturedDetails .details-group.has-thumbnail ul li span{
+    display: block;
+    margin: .25rem 0;
+}
+.FeaturedDetails .details-group.has-thumbnail ul li span{
+    opacity: .5;
 }

@@ -1,5 +1,4 @@
 .Navigation{
-    background: linear-gradient(var(--dark-color), transparent);
     color: var(--light-color);
     display: flex;
     position: fixed;
