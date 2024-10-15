@@ -4,10 +4,24 @@ import LinkButton from "../../components/Form/LinkButton"
 import "./login.css"
 import { Link } from "react-router-dom"
 import InputField from "../../components/Form/InputField"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 const Login = () => {
     const navigate = useNavigate()
+
+    const [inputValues, setInputValues] = useState({
+        emailInput: '',
+        passwordInput: ''
+    })
+
+    const handleChangeValues = (event) => {
+        setInputValues({
+            ...inputValues,
+            [event.target.name]: event.target.value
+        })
+    }
+
     const formHandle = (event) => {
         event.preventDefault()
         return navigate("/home", {replace: true})
@@ -20,8 +34,8 @@ const Login = () => {
                     <div className="login-form">
                         <form method="POST" onSubmit={formHandle}>
                             <h3 className="title">Muito entretenimento espera por você!</h3>
-                            <InputField type="email" name="emailInput" label="E-mail" placeholder="email@email.com" required="required" />
-                            <InputField type="password" name="passwordInput" label="Senha" required="required" />
+                            <InputField type="email" name="emailInput" label="E-mail" placeholder="email@email.com" required="required" onChange={handleChangeValues} />
+                            <InputField type="password" name="passwordInput" label="Senha" required="required" onChange={handleChangeValues} />
                             <Button styles="primary inverted is-full">Acessar minha conta</Button>
                             <LinkButton to="/register" styles="secondary inverted is-full">Cadastre-se</LinkButton>
                         </form>

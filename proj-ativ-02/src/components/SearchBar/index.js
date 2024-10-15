@@ -10,7 +10,7 @@ const SearchBar = () => {
         setInputSearch(event.target.value)
     }
 
-    const searchInputSend = (event) => {
+    const searchInputSend = () => {
         if(searchInput !== ""){
             return navigate("/search?query=" + searchInput, {replace: true})
         }

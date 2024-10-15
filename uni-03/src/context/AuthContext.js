@@ -1,13 +1,27 @@
-import React, { createContext } from "react"
+import React, { createContext, useState } from "react"
 
 const AuthContext = createContext()
 
-const AuthProvider = () => {
+const AuthProvider = ({children}) => {
+    const [userLogged, setUserLogged] = useState(false)
+
+    const loginUser = async (inputs) => {
+        const response = await fetch("http://localhost:3000/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json0"
+            },
+            body: JSON.stringify(inputs)
+        })
+        console.log(response)
+        setUserLogged(true)
+    }
+
     return (
-        <AuthContext.Provider>
-            {}
+        <AuthContext.Provider value={userLogged}>
+            {children}
         </AuthContext.Provider>
     )
 }
 
-export default AuthProvider
+export {AuthContext, AuthProvider}
