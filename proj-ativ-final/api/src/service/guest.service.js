@@ -4,12 +4,12 @@ const findGuestById = (id) => {
     return Guest.findById(id)
 }
 
-const findAllGuests = () => {
-    return Guest.find()
+const findAllGuests = (limit = 30, offset = 0) => {
+    return Guest.find().limit(limit).skip(offset)
 }
 
-const findAllGuestsByMuseum = (id) => {
-    return Guest.findOne({museum: id})
+const findAllGuestsByMuseum = (id, limit = 30, offset = 0) => {
+    return Guest.findOne({museum: id}).limit(30).skip(offset)
 }
 
 const createGuest = (body) => {

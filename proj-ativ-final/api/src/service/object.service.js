@@ -4,16 +4,20 @@ const findObjectById = (id) => {
     return Collection.findById(id)
 }
 
-const findAllObjects = (limit = 20, offset = 0) => {
+const findCollection = (limit = 20, offset = 0) => {
     return Collection.find().limit(limit).skip(offset)
 }
 
-const findAllCollectionsByMuseuem = (museum, limit = 20, offset = 0) => {
+const findCollectionsByMuseuem = (museum, limit = 20, offset = 0) => {
     return Collection.findOne({museum: museum}).limit(limit).skip(offset)
 }
 
 const createObject = (body) => {
     return Collection.create(body)
+}
+
+const removeObject = (id) => {
+    return Collection.findByIdAndDelete(id)
 }
 
 const updateObject = (id, body) => {
@@ -33,8 +37,10 @@ const updateAvailability = (id, availability) => {
 
 module.exports = {
     findObjectById,
-    findAllObjects,
+    findCollection,
+    findCollectionsByMuseuem,
     createObject,
+    removeObject,
     updateObject,
     updateAvailability
 }
