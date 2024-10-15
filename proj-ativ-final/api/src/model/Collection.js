@@ -31,9 +31,10 @@ const CollectionSchema = new mongoose.Schema({
     conservationState: {type: String},
     usageTerms: {type: String},
     catalogedBy: {type: String},
-    comments: {type: String}
+    comments: {type: String},
+    availability: {type: Boolean, required: true, default: true}
 })
 
-const Collection = mongoose.model("collections", CollectionSchema)
+const Collection = mongoose.model("collection", CollectionSchema)
 
 module.exports = Collection
