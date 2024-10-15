@@ -1,8 +1,8 @@
-const ObjectService = require("../service/object.service")
+const CollectionService = require("../service/collection.service")
 
 const findObjectById = async (req, res) => {
     try{
-        const object = await ObjectService.findObjectById(req.params.id)
+        const object = await CollectionService.findObjectById(req.params.id)
         if(!object){
             return res.status(404).send({
                 nessage: `Objeto não encontrado.`
@@ -18,9 +18,9 @@ const findObjectById = async (req, res) => {
     }
 }
 
-const findCollection = async (req, res) => {
+const findCollections = async (req, res) => {
     try{
-        const collection = await ObjectService.findCollection(req.query.limit, req.query.offset)
+        const collection = await CollectionService.findCollections(req.query.limit, req.query.offset)
         return res.status(200).send(collection)
     }
     catch(err){
@@ -31,9 +31,9 @@ const findCollection = async (req, res) => {
     }
 }
 
-const findCollectionsByMuseuem = async (req, res) => {
+const findCollectionsByMuseum = async (req, res) => {
     try{
-        const collection = await ObjectService.findCollectionsByMuseuem(req.params.id, req.query.limit, req.query.offset)
+        const collection = await CollectionService.findCollectionsByMuseuem(req.params.id, req.query.limit, req.query.offset)
         return res.status(200).send(collection)
     }
     catch(err){
@@ -46,7 +46,7 @@ const findCollectionsByMuseuem = async (req, res) => {
 
 const createObject = async (req, res) => {
     try{
-        const object = await ObjectService.createObject(req.body)
+        const object = await CollectionService.createObject(req.body)
         return res.status(201).send(object)
     }
     catch(err){
@@ -59,7 +59,7 @@ const createObject = async (req, res) => {
 
 const removeObject = async (req, res) => {
     try{
-        const object = await ObjectService.removeObject(req.params.id)
+        const object = await CollectionService.removeObject(req.params.id)
         return res.status(200).send(object)
     }
     catch(err){
@@ -72,7 +72,7 @@ const removeObject = async (req, res) => {
 
 const updateObject = async (req, res) => {
     try{
-        const object = await ObjectService.updateObject(req.params.id, req.body)
+        const object = await CollectionService.updateObject(req.params.id, req.body)
         return res.status(200).send(object)
     }
     catch(err){
@@ -85,7 +85,7 @@ const updateObject = async (req, res) => {
 
 const updateAvailability = async (req, res) => {
     try{
-        const object = await ObjectService.updateAvailability(req.params.id, req.body)
+        const object = await CollectionService.updateAvailability(req.params.id, req.body)
         return res.status(200).send(object)
     }
     catch(err){
@@ -98,8 +98,8 @@ const updateAvailability = async (req, res) => {
 
 module.exports = {
     findObjectById,
-    findCollection,
-    findCollectionsByMuseuem,
+    findCollections,
+    findCollectionsByMuseum,
     createObject,
     removeObject,
     updateObject,

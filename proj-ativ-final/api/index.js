@@ -17,9 +17,14 @@ const port = 5000
 app.use(express.json())
 
 // Routes
-app.get("/", (req, res) => {
-    res.send("Hello World")
-})
+const GuestRoutes = require("./src/router/guest.router")
+const MuseumRoutes = require("./src/router/museum.router")
+const CollectionRoutes = require("./src/router/collection.router")
+const UserRoutes = require("./src/router/user.router")
+app.use("/guest", GuestRoutes)
+app.use("/museum", MuseumRoutes)
+app.use("/collection", CollectionRoutes)
+app.use("/user", UserRoutes)
 
 // Server start
 app.listen(port, () => {
