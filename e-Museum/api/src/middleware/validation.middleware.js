@@ -32,6 +32,13 @@ const validateLogin = (req, res, next) => {
     }
 }
 
+// Private functions
+const validateRequiredAttribute = (errorArray, attribute, label) => {
+    if(!attribute  || attribute == undefined){
+        errorArray.push(label)
+    }
+}
+
 module.exports = {
     validateIdParams,
     validateLogin

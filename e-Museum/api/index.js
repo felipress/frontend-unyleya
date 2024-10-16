@@ -17,10 +17,12 @@ const port = 5000
 app.use(express.json())
 
 // Routes
+const AuthRoutes = require("./src/router/auth.router")
 const GuestRoutes = require("./src/router/guest.router")
 const MuseumRoutes = require("./src/router/museum.router")
 const CollectionRoutes = require("./src/router/collection.router")
 const UserRoutes = require("./src/router/user.router")
+app.use("/auth", AuthRoutes)
 app.use("/guest", GuestRoutes)
 app.use("/museum", MuseumRoutes)
 app.use("/collection", CollectionRoutes)

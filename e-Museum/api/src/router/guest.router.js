@@ -2,10 +2,11 @@ const router = require("express").Router()
 
 const GuestController = require("../controller/guest.controller")
 const {validateIdParams} = require("../middleware/validation.middleware")
+const {auth, adminUser} = require("../middleware/auth.middleware")
 
-router.get("/findById/:id", validateIdParams, GuestController.findGuestById)
-router.get("/findAll", GuestController.findAllGuests)
-router.get("/findAllByMuseum/:id", validateIdParams, GuestController.findAllGuestsByMuseum)
-router.post("/create", GuestController.createGuest)
+router.get("/findById/:id", validateIdParams, auth, adminUser, GuestController.findGuestById)
+router.get("/findAll", auth, adminUser, GuestController.findAllGuests)
+router.get("/findAllByMuseum/:id", validateIdParams, auth, adminUser, GuestController.findAllGuestsByMuseum)
+router.post("/create", auth, adminUser, GuestController.createGuest)
 
 module.exports = router

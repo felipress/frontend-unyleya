@@ -21,15 +21,15 @@ const removeObject = (id) => {
 }
 
 const updateObject = (id, body) => {
-    return Collection.findOneAndUpdate(id, body, {returnDocument: "after"})
+    return Collection.findByIdAndUpdate(id, body, {returnDocument: "after"})
 }
 
 
-const updateAvailability = (id, availability) => {
+const updateAvailability = (id, body) => {
     return Collection.findOneAndUpdate(
         {_id: id},
         {
-            $set: {availability: availability}
+            $set: {availability: body.availability}
         }
     )
 }
