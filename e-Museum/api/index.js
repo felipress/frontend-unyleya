@@ -16,6 +16,16 @@ const port = 5000
 // Usage of JSON
 app.use(express.json())
 
+// Access Control Allow Origin
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001")
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    )
+    next()
+})
+
 // Routes
 const AuthRoutes = require("./src/router/auth.router")
 const GuestRoutes = require("./src/router/guest.router")

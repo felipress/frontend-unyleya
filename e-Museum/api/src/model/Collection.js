@@ -5,7 +5,7 @@ const CollectionSchema = new mongoose.Schema({
     photo: {type: String, required: true},
     registerNumber: {
         number: {type: String, required: true, unique: true},
-        otherNumbers: {type: String, required: true}
+        otherNumbers: {type: String}
     },
     name: {type: String, required: true},
     classification: {type: String, required: true},
@@ -25,7 +25,7 @@ const CollectionSchema = new mongoose.Schema({
         width: {type: Number},
         height: {type: Number},
         length: {type: Number},
-        depth: {type: Number},
+        diameter: {type: Number},
     },
     weight: {type: Number},
     conservationState: {type: String},
