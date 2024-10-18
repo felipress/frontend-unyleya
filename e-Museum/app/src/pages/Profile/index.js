@@ -1,16 +1,14 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import inputsHandler from "../../functions/inputsHandler"
+import { AuthContext } from "../../context/AuthContext"
+
 
 const Profile = () => {
+    const {findUser} = useContext(AuthContext)
+
+    const getUser = findUser()
     
-    const [profile, setProfile] = useState({
-        name: "",
-        email: "",
-        password: "",
-        birthday: "",
-        CPF: "12345678",
-        phoneNumber: ""
-    })
+    const [profile, setProfile] = useState({})
 
     const onChangeHandle = (event) => {
         inputsHandler(event, profile, setProfile)

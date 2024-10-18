@@ -1,5 +1,8 @@
 import { createContext, useEffect, useState } from "react"
 import {useNavigate} from "react-router-dom"
+import {loginService} from "../services/auth.service"
+import { findUserById } from "../services/profile.service"
+import api from "../services/api"
 
 const AuthContext = createContext()
 const AuthProvider = ({children}) => {
@@ -10,6 +13,7 @@ const AuthProvider = ({children}) => {
         const userInfo = localStorage.getItem("userInfo")
         if(userInfo){
             setUserLogged(true)
+            // api.defaults.headers.common['Authorization'] = `Bearer ${userInfo.token}`
         }
         else{
             navigate("/login")
@@ -17,19 +21,14 @@ const AuthProvider = ({children}) => {
     }, [])
 
     const login = async (credentials) => {
-        const response = await fetch("http://localhost:5000/auth/login", {
-            method: "POST",
-            headers: {
-                'Content-Type': "application/json"
-            },
-            body: JSON.stringify(credentials)
-        })
-        const data = await response.json()
+        const response = await loginService(credentials)
+        const data = await response.data
 
         localStorage.setItem("userInfo", JSON.stringify(data))
+        // api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
         navigate("/")
         setUserLogged(true)
-    }
+    } 
 
     const logout = () => {
         setUserLogged(false)
@@ -37,8 +36,14 @@ const AuthProvider = ({children}) => {
         navigate("/login")
     }
 
+    const findUser = async () => {
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"))
+        const response = await findUserById(userInfo.userId)
+        // return await response.data
+    }
+
     return (
-        <AuthContext.Provider value={{userLogged, login, logout}}>
+        <AuthContext.Provider value={{userLogged, login, logout, findUser}}>
             {children}
         </AuthContext.Provider>
     )
