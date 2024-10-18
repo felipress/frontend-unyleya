@@ -2,6 +2,7 @@ import { useState } from "react"
 import inputsHandler from "../../functions/inputsHandler"
 
 const Profile = () => {
+    
     const [profile, setProfile] = useState({
         name: "",
         email: "",

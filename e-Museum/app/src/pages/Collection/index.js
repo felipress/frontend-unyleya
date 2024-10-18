@@ -79,17 +79,20 @@ const Collection = () => {
     // useState
     const [collection, setCollection] = useState(objectMock)
 
-    if(id){
-        // setInputs()
-    }
-
     const onChangeHandle = (event) => {
         inputsHandler(event, collection, setCollection)
     }
 
+    const deleteItemHandle = (event) => {
+        alert("Clicou em apagar")
+    }
+
+    const formHandle = (event) => {
+        event.preventDefault()
+    }
     return (
         <div>
-            <form className="block mx-auto max-w-lg">
+            <form onSubmit={formHandle} className="block mx-auto max-w-lg">
                 <div className="my-3 flex flex-col">
                     <label htmlFor="name" className="font-semibold py-1 text-gray-500">Nome</label>
                     <input type="text" name="name" required="required" placeholder="" onChange={onChangeHandle} value={collection.name} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
@@ -216,8 +219,11 @@ const Collection = () => {
                     <textarea name="comments" onChange={onChangeHandle} value={collection.comments} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
                 </div>
 
-                <div className="my-6 flex justify-end">
-                    <button className="block px-5 py-3 rounded text-center font-semibold text-white bg-orange-500 hover:bg-orange-600">Salvar alterações</button>
+                <div className="my-6 flex justify-end gap-4">
+                    {id ? (
+                        <button onClick={deleteItemHandle} className="block px-5 py-3 rounded text-center font-semibold border border-solid border-orange-500 text-orange-500 hover:bg-orange-50">Excluir</button>
+                    ) : ""}
+                    <button type="submit" className="block px-5 py-3 rounded text-center font-semibold text-white bg-orange-500 hover:bg-orange-600">Salvar alterações</button>
                 </div>
             </form>
         </div>

@@ -26,7 +26,7 @@ const Navigation = () => {
                         <Link to="/profile" className="block px-4 py-2 border-b border-orange-200">Minha conta</Link>
                     </li>
                     <li>
-                        <Link to="/login" className="block px-4 py-2">Deslogar</Link>
+                        <Link to="/logout" className="block px-4 py-2">Deslogar</Link>
                     </li>
                 </ul>
             </div>

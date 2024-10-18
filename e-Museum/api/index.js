@@ -18,10 +18,10 @@ app.use(express.json())
 
 // Access Control Allow Origin
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001")
+    res.setHeader("Access-Control-Allow-Origin", "*")
     res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
     )
     next()
 })

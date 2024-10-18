@@ -9,9 +9,11 @@ const login = async (req, res) => {
         if(user){
             // Compares if the sent password matches the stored in database
             if(await bcrypt.compare(password, user.password)){
-                const token = AuthService.generateToken(user.id)
+                const userId = user.id
+                const token = AuthService.generateToken(userId)
                 return res.status(200).send({
                     email,
+                    userId,
                     token
                 })
             }
