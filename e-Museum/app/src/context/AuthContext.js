@@ -1,8 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import {useNavigate} from "react-router-dom"
 import {loginService} from "../services/auth.service"
-import { findUserById } from "../services/profile.service"
-import api from "../services/api"
 
 const AuthContext = createContext()
 const AuthProvider = ({children}) => {
@@ -13,7 +11,6 @@ const AuthProvider = ({children}) => {
         const userInfo = localStorage.getItem("userInfo")
         if(userInfo){
             setUserLogged(true)
-            // api.defaults.headers.common['Authorization'] = `Bearer ${userInfo.token}`
         }
         else{
             navigate("/login")
@@ -36,14 +33,13 @@ const AuthProvider = ({children}) => {
         navigate("/login")
     }
 
-    const findUser = async () => {
+    const userLoggedId = () => {
         const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-        const response = await findUserById(userInfo.userId)
-        // return await response.data
+        return userInfo.userId
     }
 
     return (
-        <AuthContext.Provider value={{userLogged, login, logout, findUser}}>
+        <AuthContext.Provider value={{userLogged, login, logout, userLoggedId}}>
             {children}
         </AuthContext.Provider>
     )

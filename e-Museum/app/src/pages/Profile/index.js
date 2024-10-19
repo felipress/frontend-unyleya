@@ -1,14 +1,44 @@
-import { useContext, useEffect, useState } from "react"
+import {useContext, useEffect, useState} from "react"
 import inputsHandler from "../../functions/inputsHandler"
-import { AuthContext } from "../../context/AuthContext"
-
+import {AuthContext} from "../../context/AuthContext"
+import {findUserByIdService, updateUserService} from "../../services/profile.service"
+import api from "../../services/api"
 
 const Profile = () => {
-    const {findUser} = useContext(AuthContext)
+    const {userLoggedId} = useContext(AuthContext)
 
-    const getUser = findUser()
-    
-    const [profile, setProfile] = useState({})
+    const [profile, setProfile] = useState({
+        _id: "",
+        name: "",
+        email: "",
+        birthday: "",
+        CPF: "",
+        phoneNumber: ""
+    })
+
+    const loadProfile = async () => {
+        const response = await findUserByIdService(userLoggedId())
+        const data = await response.data
+        data.birthday = data.birthday.slice(0, 10)
+        setProfile(data)
+    }
+
+    const formHandle = async (event) => {
+        event.preventDefault()
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"))
+        if(userInfo.token){
+            api.defaults.headers.common['Authorization'] = `Bearer ${userInfo.token}`
+        }
+        const response = await updateUserService(profile._id)
+        const data = await response.data
+        if(data){
+            alert("Perfil atualizado", data)
+        }
+    }
+
+    useEffect(() => {
+        loadProfile()
+    }, [])
 
     const onChangeHandle = (event) => {
         inputsHandler(event, profile, setProfile)
@@ -16,7 +46,7 @@ const Profile = () => {
 
     return (
         <div>
-            <form className="block mx-auto max-w-lg">
+            <form className="block mx-auto max-w-lg" onSubmit={formHandle}>
                 <div className="my-3 flex flex-col">
                     <label htmlFor="name" className="font-semibold py-1 text-gray-500">Nome</label>
                     <input type="text" name="name" required="required" placeholder="Ex.: John Smith" onChange={onChangeHandle} value={profile.name} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />

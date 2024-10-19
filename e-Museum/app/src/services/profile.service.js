@@ -1,6 +1,6 @@
 import api from "./api"
 
-const findUserById = async (id) => {
+const findUserByIdService = async (id) => {
     try{
         return await api.get(`/user/findById/${id}`)
     }
@@ -9,7 +9,7 @@ const findUserById = async (id) => {
     }
 }
 
-const update = async (id, data) => {
+const updateUserService = async (id, data) => {
     try{
         return await api.put(`/user/update/${id}`, data)
     }
@@ -19,5 +19,6 @@ const update = async (id, data) => {
 }
 
 export {
-    findUserById
+    findUserByIdService,
+    updateUserService
 }

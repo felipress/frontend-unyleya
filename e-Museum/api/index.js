@@ -18,11 +18,12 @@ app.use(express.json())
 
 // Access Control Allow Origin
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.header(
+    res.header("Access-Control-Allow-Origin", "*")
+    /*res.header(
       "Access-Control-Allow-Headers",
+      "Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS",
       "Origin, X-Requested-With, Content-Type, Accept"
-    )
+    )*/
     next()
 })
 
