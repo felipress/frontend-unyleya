@@ -1,6 +1,7 @@
-import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import inputsHandler from "../../functions/inputsHandler"
+import { createCollection, findCollectionById, removeCollection, updateCollection } from "../../services/collection.service"
 
 const Collection = () => {
     /* Default object */
@@ -37,59 +38,63 @@ const Collection = () => {
         comments: ""
     }
 
-    const realObject = {
-        photo: "",
-        registerNumber: {
-            number: "12345",
-            otherNumbers: "Não há"
-        },
-        name: "Abaporu",
-        classification: "Tela",
-        production: {
-            date: "",
-            location: "Brasil"
-        },
-        description: "",
-        material: "",
-        author: "",
-        location: "",
-        acquisition: {
-            type: "COMPRA",
-            comments: ""
-        },
-        dimension: {
-            width: "",
-            height: "",
-            length: "",
-            diameter: ""
-        },
-        weight: "",
-        conservationState: "BOM",
-        usageTerms: "",
-        catalogedBy: "",
-        comments: ""
-    }
-
-    // Get ID from params and tries to fetch its object from database
-    const {id} = useParams()
-    if(id){
-        objectMock = realObject
-    }
-
     // useState
     const [collection, setCollection] = useState(objectMock)
 
+    // Navigate
+    const navigate = useNavigate()
+
+    // Get ID from params and tries to fetch its object from database
+    const {id} = useParams()
+    const loadObject = async () => {
+        if(id){
+            const response = await findCollectionById(id)
+            const data = await response.data
+            setCollection(data)
+        }
+    }
+
+    useEffect(() => {
+        loadObject()
+    }, [])
+        
     const onChangeHandle = (event) => {
         inputsHandler(event, collection, setCollection)
     }
 
-    const deleteItemHandle = (event) => {
-        alert("Clicou em apagar")
+    const deleteCollectionHandle = async (event) => {
+        const response = await removeCollection(collection._id)
+        navigate("/")
     }
 
-    const formHandle = (event) => {
+    const createCollectionHandle = async (event) => {
+        const response = await createCollection(collection)
+        const data = await response.data
+        if(data){
+            alert("Objeto cadastrado com sucesso.")
+        }
+    }
+
+    const updateCollectionHandle = async (event) => {
+        const response = await updateCollection(id, collection)
+        const data = await response.data
+        if(data){
+            alert("Objeto atualizado com sucesso.")
+        }
+    }
+
+    const formHandle = async (event) => {
         event.preventDefault()
     }
+
+    const saveHandle = async (event) => {
+        event.preventDefault()
+        if(id){
+            return updateCollectionHandle()
+        }
+        return createCollectionHandle()
+    }
+    
     return (
         <div>
             <form onSubmit={formHandle} className="block mx-auto max-w-lg">
@@ -98,6 +103,11 @@ const Collection = () => {
                     <input type="text" name="name" required="required" placeholder="" onChange={onChangeHandle} value={collection.name} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
                 </div>
 
+                <div className="my-3 flex flex-col">
+                    <label htmlFor="photo" className="font-semibold py-1 text-gray-500">Foto</label>
+                    <input type="text" name="photo" required="required" placeholder="" onChange={onChangeHandle} value={collection.photo} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
+                </div>
+                
                 <div className="my-3 flex gap-4">
                     <div className="flex flex-col grow">
                         <label htmlFor="registerNumber.number" className="font-semibold py-1 text-gray-500">Número de Registro</label>
@@ -171,7 +181,7 @@ const Collection = () => {
                     </div>
                     <div className="flex flex-col grow">
                         <label htmlFor="dimension.height" className="font-semibold py-1 text-gray-500">Altura (cm)</label>
-                        <input type="number" name="dimension.width" onChange={onChangeHandle} value={collection.dimension.height} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
+                        <input type="number" name="dimension.height" onChange={onChangeHandle} value={collection.dimension.height} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
                     </div>
                 </div>
 
@@ -221,9 +231,9 @@ const Collection = () => {
 
                 <div className="my-6 flex justify-end gap-4">
                     {id ? (
-                        <button onClick={deleteItemHandle} className="block px-5 py-3 rounded text-center font-semibold border border-solid border-orange-500 text-orange-500 hover:bg-orange-50">Excluir</button>
+                        <button onClick={deleteCollectionHandle} className="block px-5 py-3 rounded text-center font-semibold border border-solid border-orange-500 text-orange-500 hover:bg-orange-50">Excluir</button>
                     ) : ""}
-                    <button type="submit" className="block px-5 py-3 rounded text-center font-semibold text-white bg-orange-500 hover:bg-orange-600">Salvar alterações</button>
+                    <button onClick={saveHandle} className="block px-5 py-3 rounded text-center font-semibold text-white bg-orange-500 hover:bg-orange-600">Salvar alterações</button>
                 </div>
             </form>
         </div>

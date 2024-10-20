@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<AppInterface title="Acervo"><Home /></AppInterface>} />
         <Route path="/profile" element={<AppInterface title="Minha Conta"><Profile /></AppInterface>} />
         <Route path="/collection/create" element={<AppInterface title="Cadastrar objeto"><Collection /></AppInterface>} />
-        <Route path="/collection/edit/:id" element={<AppInterface title="Editar objeto"><Collection /></AppInterface>} />
+        <Route path="/collection/details/:id" element={<AppInterface title="Editar objeto"><Collection /></AppInterface>} />
         <Route path="/museum" element={<AppInterface title="Configurações do Museu"><Museum /></AppInterface>} />
         <Route path="/logout" element={<Logout />} />
       </Routes>

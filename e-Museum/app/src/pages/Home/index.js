@@ -1,5 +1,7 @@
 import CollectionList from "../../components/CollectionList"
 import {Link}  from "react-router-dom"
+import { findAllCollections } from "../../services/collection.service"
+import { useEffect, useState } from "react"
 
 const Home = () => {
     const items = [
@@ -46,10 +48,27 @@ const Home = () => {
             _id: "12345678"
         }
     ]
+
+    const [collection, setCollection] = useState([])
+    const [loading, setLoading] = useState(true)
     
+    const loadCollection = async () => {
+        const response = await findAllCollections()
+        const data = await response.data
+        setCollection(data)
+    }
+
+    useEffect(() => {
+        loadCollection()
+        setLoading(false)
+    }, [])
+
+    if(loading){
+        return ("Carregando...")
+    }
     return (
         <div>
-            <CollectionList data={items} />
+            <CollectionList data={collection} />
             <div className="my-6 flex justify-end gap-4">
                 <Link to="/" className="block px-5 py-3 rounded text-center font-semibold text-orange-500 border border-solid border-orange-500 hover:bg-orange-50">Página anterior</Link>
                 <Link to="/" className="block px-5 py-3 rounded text-center font-semibold text-white bg-orange-500 hover:bg-orange-600">Próxima página</Link>

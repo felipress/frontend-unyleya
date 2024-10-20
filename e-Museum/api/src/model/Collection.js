@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const CollectionSchema = new mongoose.Schema({
-    museum: {type: mongoose.Schema.Types.ObjectId, required: true, ref: "museums"},
+    museum: {type: mongoose.Schema.Types.ObjectId, ref: "museums"},
     photo: {type: String, required: true},
     registerNumber: {
         number: {type: String, required: true, unique: true},

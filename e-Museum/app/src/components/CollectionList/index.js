@@ -5,7 +5,7 @@ const CollectionList = ({data}) => {
         <ul className="flex flex-col gap-4">
             {
                 data.map((item, key) => {
-                    return <Item data={item} key={key} />
+                   return <Item data={item} key={key} />
                 })
             }
         </ul>
