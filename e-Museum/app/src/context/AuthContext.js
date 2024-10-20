@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react"
 import {useNavigate} from "react-router-dom"
 import {loginService} from "../services/auth.service"
+import api from "../services/api"
 
 const AuthContext = createContext()
 const AuthProvider = ({children}) => {
@@ -8,9 +9,10 @@ const AuthProvider = ({children}) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const userInfo = localStorage.getItem("userInfo")
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"))
         if(userInfo){
             setUserLogged(true)
+            api.defaults.headers.common['Authorization'] = `Bearer ${userInfo.token}`
         }
         else{
             navigate("/login")

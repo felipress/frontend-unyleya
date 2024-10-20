@@ -1,11 +1,12 @@
-import {useState} from "react"
+import {useEffect, useState} from "react"
 import inputsHandler from "../../functions/inputsHandler"
+import { findMuseum, updateMuseum } from "../../services/museums.service"
 
 const Museum = () => {
     let museumMock = {
         type: "",
         name: "",
-        acronym: "",
+        acronymn: "",
         foundation: "",
         address: {
             street: "",
@@ -32,9 +33,29 @@ const Museum = () => {
         inputsHandler(event, museum, setMuseum)
     }
 
+    const loadMuseum = async () => {
+        const response = await findMuseum()
+        const data = await response.data[0]
+        data.foundation = data.foundation.slice(0, 10)
+        setMuseum(data)
+    }
+
+    const formHandle = async (event) => {
+        event.preventDefault()
+        const response = await updateMuseum(museum._id, museum)
+        const data = await response.data
+        if(data){
+            alert("Configurações de museu atualizadas.")
+        }
+    }
+
+    useEffect(() => {
+        loadMuseum()
+    }, [])
+
     return (
         <div>
-            <form className="block mx-auto max-w-lg">
+            <form className="block mx-auto max-w-lg" onSubmit={formHandle}>
                 <div className="my-3 flex flex-col">
                     <label htmlFor="name" className="font-semibold py-1 text-gray-500">Nome</label>
                     <input type="text" name="name" required="required" placeholder="" onChange={onChangeHandle} value={museum.name} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
@@ -56,8 +77,8 @@ const Museum = () => {
                         </select>
                     </div>
                     <div className="flex flex-col grow">
-                        <label htmlFor="acronym" className="font-semibold py-1 text-gray-500">Sigla</label>
-                        <input type="text" name="acronym" onChange={onChangeHandle} value={museum.acronym} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
+                        <label htmlFor="acronymn" className="font-semibold py-1 text-gray-500">Sigla</label>
+                        <input type="text" name="acronymn" onChange={onChangeHandle} value={museum.acronymn} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
                     </div>
                 </div>
 
@@ -141,7 +162,7 @@ const Museum = () => {
                     </div>
                     <div className="flex flex-col">
                         <label htmlFor="address.zipcode" className="font-semibold py-1 text-gray-500">CEP</label>
-                        <input type="number" name="address.zipcode" required="required" onChange={onChangeHandle} value={museum.address.zipcode} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
+                        <input type="text" name="address.zipcode" required="required" onChange={onChangeHandle} value={museum.address.zipcode} className="block px-3.5 py-2.5 rounded border border-solid w-full focus:outline-orange-500" />
                     </div>
                 </div>
                 
